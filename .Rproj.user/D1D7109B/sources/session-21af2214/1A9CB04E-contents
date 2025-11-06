@@ -1,0 +1,14 @@
+
+all: Final-Project-Part-2.html
+
+# Builds final report
+Final-Project-Part-2.html: Final-Project-Part-2.Rmd output1/final_proj_table output1/final_proj_figure
+	Rscript -e "rmarkdown::render('Final-Project-Part-2.Rmd')"
+
+# Create the output of code/final_proj_table.R
+output1/final_proj_table:
+	Rscript code/final_proj_table.R
+
+# Create the output of code/final_proj_figure.R
+output1/final_proj_figure:
+	Rscript code/final_proj_figure.R
