@@ -12,3 +12,8 @@ output1/final_proj_table:
 # Create the output of code/final_proj_figure.R
 output1/final_proj_figure:
 	Rscript code/final_proj_figure.R
+
+#Restores package library
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
