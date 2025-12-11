@@ -1,19 +1,34 @@
 
-all: Final-Project-Part-2.html
+all: Final_Project.html
 
 # Builds final report
-Final-Project-Part-2.html: Final-Project-Part-2.Rmd output1/final_proj_table output1/final_proj_figure
-	Rscript -e "rmarkdown::render('Final-Project-Part-2.Rmd')"
+Final_Project.html: Final_Project.Rmd output1/final_proj_table output1/final_proj_figure
+	Rscript -e "rmarkdown::render('Final_Project.Rmd')"
 
-# Create the output of code/final_proj_table.R
+# Creates table output of code/final_proj_table.R
 output1/final_proj_table:
 	Rscript code/final_proj_table.R
 
-# Create the output of code/final_proj_figure.R
+# Creates scatterplot output of code/final_proj_figure.R
 output1/final_proj_figure:
 	Rscript code/final_proj_figure.R
 
-#Restores package library
+# Restores package library
 .PHONY: install
 install:
 	Rscript -e "renv::restore(prompt = FALSE)"
+
+# Container with "report" directory for compiled report (Mac)
+.PHONY: docker-run-report
+docker-run-report:
+	rm -rf report
+	mkdir report
+	docker run -v "$$(pwd)/final_report":/project/final_report ashley-report
+	
+# Container with "report" directory for compiled report (Windows)
+.PHONY: docker-run-report-win
+docker-run-report-win:
+	rm -rf report
+	mkdir report
+	docker run -v "$$(pwd)/final_report":/project/final_report ashley-report
+    

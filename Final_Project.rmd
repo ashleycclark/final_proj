@@ -25,7 +25,7 @@ The dataset used in this analysis is CDC's Mapping Injury, Overdose and Violence
 2. Investigate the distribution of firearm related deaths in the Southeastern United States.
 
 ```{r load-data, echo=FALSE}
-injury <- read.csv("Injury_Violence_Data.csv")
+injury <- read.csv("Raw_Data/Injury_Violence_Data.csv")
 ```
 
 ```{r data-cleaning, echo=FALSE}

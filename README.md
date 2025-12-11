@@ -1,11 +1,28 @@
+# About this project 
+This project analyzes gun violence patterns in the Southeastern U.S. states and presents the results in a final report.
+The final report includes a table displaying overdose mortality rates for the seven Southeastern U.S. states. The final 
+report also includes a pie chart displaying the distribution of firearm related deaths in the Southeastern United States in 2025.# final_proj
+
+# Docker 
+A fully reproducible Docker image is publicly available on DockerHub:
+https://hub.docker.com/repository/docker/ashleycclark/ashley-report/general
+This image contains all R packages and files needed to render the report automatically.
+
+To build the Docker image, run the following command from the project directory in your terminal: 
+`make docker-build` 
+
+To run the final automated report, run either in your terminal: 
+`make docker-run-report-mac` (for mac users) or 
+`make docker-run-report-win` (for windows users)
+
 # Code Description
 
 `code/final_proj_fig.R`
-- Produces final project figure 1 
+- Produces final project figure 1 which is a scatterplot showing distribution of firearm related deaths for the Southeastern United States.
 - saves final_proj_fig into output1 folder
 
 `code/final_proj_table.R`
-- Produces final project table 1 
+- Produces final project table 1 which displays overdose mortality rates for the Southeastern United States.
 - saves final_proj_table into output1 folder
 
 `code/render_report.R`
@@ -17,12 +34,9 @@
 - display results for production report
 
 # How to 
-To create the final report, run the command `make` at the command line. This project uses renv to reinitalize the packages
-used in the creation of the report. To restore all necessary packages:
+To create the final report, run the command `make` at the command line. 
+This project uses renv to reinitalize the packages used in the creation of the report. To restore all necessary packages:
 1. run `make install` at the command line OR;
 2. run `renv::restore()` in R
 
-# About this project 
-This project analyzes gun violence patterns in the Southeastern U.S. states and presents the results in a final report.
-The final report includes a table displaying overdose mortality rates for the seven Southeastern U.S. states. The final 
-report also includes a pie chart displaying the distribution of firearm related deaths in the Southeastern United States in 2025.# final_proj
+
